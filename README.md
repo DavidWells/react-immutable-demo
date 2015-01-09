@@ -10,6 +10,8 @@ Forked from https://github.com/jergason/happytrack and dumbed down to ES5. Many 
 
 [Watch Video from @jergason for more info](http://youtu.be/Ofx0Gl5viqE?t=31m2s)
 
+# Demo App from @jergason
+
 > Track your happies
 
 happytrack is a small demonstration of using [immutable.js](https://github.com/facebook/immutable-js)
