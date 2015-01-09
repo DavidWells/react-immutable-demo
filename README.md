@@ -1,4 +1,6 @@
-# happytrack
+#
+
+Forked from https://github.com/jergason/happytrack and dumbed down to ES5
 
 > Track your happies
 

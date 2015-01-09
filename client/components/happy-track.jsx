@@ -1,35 +1,35 @@
-const React = require('react/addons');
-const EmotionSelector = require('./emotion-selector');
+var React = require('react/addons');
+var EmotionSelector = require('./emotion-selector');
 
-const HappyTrack = React.createClass({
+var HappyTrack = React.createClass({
   mixins: [React.addons.LinkedStateMixin],
 
-  getDefaultProps() {
+  getDefaultProps: function() {
     return {
       emotion: 3,
       why: ''
     };
   },
 
-  getInitialState() {
+  getInitialState: function() {
     console.log('props is', this.props);
     return {emotion: this.props.emotion, why: this.props.why };
   },
 
-  componentWillReceiveProps(props) {
+  componentWillReceiveProps: function(props) {
     console.log('got props', arguments);
     this.setState({emotion:props.emotion, why:props.why});
   },
 
-  emotionChanged(emotion) {
+  emotionChanged: function(emotion) {
     this.setState({emotion});
   },
 
-  submit() {
+  submit: function() {
     this.props.onSubmit(this.state);
   },
 
-  render() {
+  render: function() {
     return (
       <div>
         <h2>How Am I Feeling Today?</h2>

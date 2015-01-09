@@ -1,7 +1,7 @@
 {
-  "name": "happytrack",
+  "name": "react-immutable-demo",
   "version": "1.0.0",
-  "description": "",
+  "description": "forked from happytrack",
   "main": "index.js",
   "scripts": {
     "test": "echo \"EVERYTHING IS FINE\"",

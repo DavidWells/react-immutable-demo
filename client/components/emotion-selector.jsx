@@ -1,32 +1,32 @@
-const React = require('react');
-const RadioGroup = require('react-radio-group');
-const EMOTIONS = require('../emotions');
+var React = require('react');
+var RadioGroup = require('react-radio-group');
+var EMOTIONS = require('../emotions');
 
-const EmotionSelector = React.createClass({
-  getInitialState() {
+var EmotionSelector = React.createClass({
+  getInitialState: function() {
     return {selectedEmotion: this.props.initialEmotion};
   },
 
-  renderEmotionSelections(emotions) {
+  renderEmotionSelections: function(emotions) {
     return emotions.map(this.renderEmotionSelection);
   },
 
-  renderEmotionSelection(emotion, i) {
+  renderEmotionSelection: function(emotion, i) {
     return (
-      <label>
+      <label key={i}>
         {emotion}
         <input type="radio" value={i} />
       </label>
     );
   },
 
-  handleChange(event) {
+  handleChange: function(event) {
     var selectedEmotion = event.target.value;
     this.setState({ selectedEmotion });
     this.props.onChange(selectedEmotion);
   },
 
-  render() {
+  render: function() {
     return (
       <RadioGroup value={this.state.selectedEmotion} onChange={this.handleChange}>
         {this.renderEmotionSelections(EMOTIONS)}

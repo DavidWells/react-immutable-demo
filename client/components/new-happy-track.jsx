@@ -1,20 +1,18 @@
-const React = require('react');
-const HappyTrack = require('./happy-track');
-const Immutable = require('immutable');
+var React = require('react');
+var HappyTrack = require('./happy-track');
+var Immutable = require('immutable');
 
-const NewHappyTrack = React.createClass({
-  submit(emotion) {
+var NewHappyTrack = React.createClass({
+  submit: function(emotion) {
     this.props.cursor.update(function(emotionsList) {
       emotion.date = new Date();
       return emotionsList.push(Immutable.fromJS(emotion));
     });
   },
 
-  render() {
+  render: function() {
     return (
-      <HappyTrack
-        onSubmit={this.submit}
-      />
+      <HappyTrack onSubmit={this.submit} />
     );
   }
 });

@@ -1,17 +1,17 @@
-const React = require('react');
-const Router = require('react-router');
-const EMOTIONS = require('../emotions');
+var React = require('react');
+var Router = require('react-router');
+var EMOTIONS = require('../emotions');
 
-const App = React.createClass({
+var App = React.createClass({
   mixins: [Router.State, Router.Navigation],
 
-  showEntryForm() {
+  showEntryForm: function() {
     this.transitionTo('new');
   },
 
-  renderEntry(entry, i) {
+  renderEntry: function(entry, i) {
     return (
-      <li>
+      <li key={i}>
         <Router.Link to="show" params={{id: i}}>
           {EMOTIONS[entry.get('emotion')]} - {entry.get('date').toDateString()}
         </Router.Link>
@@ -19,10 +19,10 @@ const App = React.createClass({
     );
   },
 
-  renderEntries(entries) {
+  renderEntries: function(entries, i) {
     var renderedEntries = this.props.cursor.map(this.renderEntry);
     return (
-      <div>
+      <div key={i}>
         <h3>Previous Entries</h3>
         <ul>
           {renderedEntries.toJS()}
@@ -31,9 +31,10 @@ const App = React.createClass({
     );
   },
 
-  renderChildRoute() {
+  renderChildRoute: function() {
     var isRenderingChildEmotion = this.getParams().id != null;
     if (isRenderingChildEmotion) {
+      console.log('params', this.getParams());
       console.log('isRenderingChildEmotion', this.getParams().id);
       return <Router.RouteHandler cursor={this.props.cursor.get(this.getParams().id)} />
     } else {
@@ -43,7 +44,7 @@ const App = React.createClass({
     }
   },
 
-  render() {
+  render: function() {
     return (
       <div className="row">
         <div className="small-3 columns">
